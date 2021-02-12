@@ -13,7 +13,7 @@ Rationale:
 - Practice your GNU Make skills.
 - No excuse for creating python projects without proper packaging and
   distribution structure, this repo gives you the blueprint for an
-  installable python package ready for publishing at pypi.
+  installable python package ready for publishing to `pypi <https://pypi.org/>`_.
 
 
 What is inside ?
