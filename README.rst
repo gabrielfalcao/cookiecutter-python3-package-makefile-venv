@@ -68,11 +68,11 @@ Builds the current version and pushes to pypi.
 2. Delete the git information: ``rm -rf .git``.
 3. Customize the variables in the ``Makefile``.
 4. Customize the variables in the ``setup.py``.
-4. Customize the ``cover-package`` variable in ``setup.cfg``.
-5. Adjust the initial version in ``yourpackagename/version.py``.
-6. Rename the folder "yourpackagename" to a valid python module name.
-7. Replace the contents of this file ``README.rst`` (format documentation `here <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_).
-8. Your project is ready for development, refer to the list of makefile targets abovea for more information.
+5. Customize the ``cover-package`` variable in ``setup.cfg``.
+6. Adjust the initial version in ``yourpackagename/version.py``.
+7. Rename the folder "yourpackagename" to a valid python module name.
+8. Replace the contents of this file ``README.rst`` (format documentation `here <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_).
+9. Your project is ready for development, refer to the list of makefile targets abovea for more information.
 
 
 **Configuring open-source license**
