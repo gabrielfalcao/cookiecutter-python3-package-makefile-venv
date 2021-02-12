@@ -1,4 +1,4 @@
-name: 🐍 Python 3.7.5
+name: 🐍 Python 3
 
 on:
   push:
@@ -10,6 +10,14 @@ jobs:
   build:
     name: "Python Tests"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python:
+          - 3.6.12
+          - 3.7.9
+          - 3.8.7
+          - 3.9.1
+
     # services:
     #   # Label used to access the service container
     #   postgres:
@@ -36,9 +44,9 @@ jobs:
     #   run: sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl postgresql
 
     - name: setup pyenv
-      uses: "gabrielfalcao/pyenv-action@v6"
+      uses: gabrielfalcao/pyenv-action@v7
       with:
-        default: 3.7.5
+        default: "${{ matrix.python }}"
 
     - name: Cache VirtualEnv
       id: cache-venv
