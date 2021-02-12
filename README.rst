@@ -91,3 +91,17 @@ Before making a release, make sure to configure your `pypi credentials <https://
 1. Set the new version in ``version.py``.
 2. Add proper version changes in ``CHANGELOG.rst``.
 3. run ``make release``.
+
+
+**Adding docs**
+---------------
+
+I recommend using `Sphinx <https://www.sphinx-doc.org/en/master/>`_ for documenting your project.
+
+Sphinx is the unspoken official tool for documentation in the python
+ecosystem, it supports many plugins but the `Intersphinx
+<https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html>`_
+plugin is among the ones I find most useful because it creates a
+binary file called ``objects.inv`` that allows other Sphinx-powered
+documentation to make direct reference to the documentation of
+internal python APIs.
