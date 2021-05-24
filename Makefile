@@ -1,7 +1,8 @@
-.PHONY: all tests dependencies unit functional tdd-functional tdd-unit run clean black
+.PHONY: all develop tests dependencies unit functional tdd-functional tdd-unit run clean black setup
 
 PACKAGE_PATH		:= ./yourpackagename
 MAIN_CLI_NAME		:= your-package-name
+REQUIREMENTS_FILE	:= development.txt
 GIT_ROOT		:= $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 VENV_ROOT		:= $(GIT_ROOT)/.venv
 MAIN_CLI_PATH		:= $(VENV_ROOT)/$(MAIN_CLI_NAME)
@@ -12,19 +13,22 @@ venv $(VENV):  # creates $(VENV) folder if does not exist
 	python3 -mvenv $(VENV)
 	$(VENV)/bin/pip install -U pip setuptools
 
-develop $(MAIN_CLI_PATH) $(VENV)/bin/nosetests $(VENV)/bin/python $(VENV)/bin/pip: # installs latest pip
+$(MAIN_CLI_PATH) $(VENV)/bin/nosetests $(VENV)/bin/python $(VENV)/bin/pip: # installs latest pip
 	test -e $(VENV)/bin/pip || $(MAKE) $(VENV)
-	$(VENV)/bin/pip install -r development.txt
+	$(MAKE) setup
+
+setup: | venv $(VENV)/bin/pip
+	$(VENV)/bin/pip install --force-reinstall -r $(REQUIREMENTS_FILE)
+	$(VENV)/bin/pip install -e .
+
+develop: |venv  $(VENV)/bin/python
 	$(VENV)/bin/python setup.py develop
 
 # Runs the unit and functional tests
 tests: unit functional  # runs all tests
 
-
 # Install dependencies
-dependencies: | $(VENV)/bin/nosetests
-	$(VENV)/bin/pip install -r development.txt
-	$(VENV)/bin/python setup.py develop
+dependencies: setup develop
 
 
 # runs unit tests
