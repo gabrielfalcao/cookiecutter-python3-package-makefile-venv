@@ -1,9 +1,9 @@
 .PHONY: all develop tests dependencies unit functional tdd-functional tdd-unit run clean black setup
 
-PACKAGE_PATH		:= ./yourpackagename
-MAIN_CLI_NAME		:= your-package-name
+MAIN_CLI_NAME		:= {{cookiecutter.pypi_package_name}}
 REQUIREMENTS_FILE	:= development.txt
 GIT_ROOT		:= $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+PACKAGE_PATH		:= $(GIT_ROOT)/{{cookiecutter.module_name}}
 VENV_ROOT		:= $(GIT_ROOT)/.venv
 MAIN_CLI_PATH		:= $(VENV_ROOT)/$(MAIN_CLI_NAME)
 export VENV		?= $(VENV_ROOT)

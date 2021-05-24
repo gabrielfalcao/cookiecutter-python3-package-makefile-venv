@@ -3,8 +3,7 @@
 Release History
 ---------------
 
-Changes in 1.0.0
+Changes in {{cookiecutter.package_version}}
 ~~~~~~~~~~~~~~~~
 
-- Initial release, contains a dummy command-line tool that prints
-  "Hello World".
+- {{ cookiecutter.initial_changelog_entry}}

@@ -1,0 +1,9 @@
+{
+  "author_name": "Your Name",
+  "email": "your@email.com",
+  "project_name": "My Python Project",
+  "pypi_package_name": "my-python-project",
+  "module_name": "my_python_project",
+  "package_short_description": "A simple python project",
+  "initial_version": "0.0.1"
+}

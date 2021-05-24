@@ -1,82 +1,34 @@
-Makefile for Python3 projects
+{{cookiecutter.project_name}}
 =============================
 
-Tired of switching between python development tools such as pipenv and
-poetry I decided to stick to Makefile because it is available by
-default in Linux and OSX.
+This project is based on the project `Makefile Python Venv Basic
+<https://github.com/gabrielfalcao/Makefile-python-basic>`_ which uses
+the python3 builtin module `venv
+<https://docs.python.org/3/library/venv.html>`_ and uses a Makefile to
+automate development tests such as running tests, making releases,
+generating documentation, etc.
 
-Rationale:
-
-- Makefile is available in most unix systems - ships with OSX and most Linuxes.
-- Virtualenv is automatically created on demand via Makefile rules.
-- Use pure pip to manage dependencies.
-- Practice your GNU Make skills.
-- No excuse for creating python projects without proper packaging and
-  distribution structure, this repo gives you the blueprint for an
-  installable python package ready for publishing to `pypi <https://pypi.org/>`_.
+Check that project's documentation for more information.
 
 
-What is inside ?
-----------------
+Next steps to configure your python project
+--------------------------------------------
 
-The main file is obviously the Makefile, you can just download and use it however you want.
+**Running Tests**
+.................
 
-Optionally clone this whole repo which gives you the basic structure of an installable python package.
+.. code:: bash
 
-Makefile Targets
-----------------
+   # to run both unit and functional tests:
+   make tests
 
-``make tests``
-..............
-
-Runs all tests.
-
-
-``make unit``
-.............
-
-Runs unit tests.
-
-
-``make functional``
-...................
-
-Runs functional tests.
-
-
-``make black``
-..............
-
-Format code with black.
-
-
-``make run``
-.............
-
-Executes the main command-line script.
-
-``make release``
-.............
-
-Builds the current version and pushes to pypi.
-
-
-**Setting up a new python project**
------------------------------------
-
-1. Clone this repo.
-2. Delete the git information: ``rm -rf .git``.
-3. Customize the variables in the ``Makefile``.
-4. Customize the variables in the ``setup.py``.
-5. Customize the ``cover-package`` variable in ``setup.cfg``.
-6. Adjust the initial version in ``yourpackagename/version.py``.
-7. Rename the folder ``yourpackagename`` to a valid python module name.
-8. Replace the contents of this file ``README.rst`` (format documentation `here <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_).
-9. Your project is ready for development, refer to the list of makefile targets above for more information.
+   # or separately:
+   make unit
+   make functional
 
 
 **Configuring open-source license**
-------------------------
+...................................
 
 1. Follow the `python packaging guide for licenses <https://packaging.python.org/tutorials/packaging-projects/#creating-a-license>`_.
 2. Edit the file ``LICENSE`` with a copy of the license you chose as explained in the guide above.
@@ -84,7 +36,7 @@ Builds the current version and pushes to pypi.
 
 
 **Making a new release**
-------------------------
+........................
 
 Before making a release, make sure to configure your `pypi credentials <https://workshop-from-your-editor-to-pypi.readthedocs.io/en/latest/pypirc-credentials.html>`_....
 
